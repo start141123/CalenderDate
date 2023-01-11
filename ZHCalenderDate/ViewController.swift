@@ -11,8 +11,6 @@ class ViewController: ZHViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        installSetupUI()
-        installSetupSubscribe()
     }
     
     override func installSetupSubscribe() {
@@ -30,6 +28,7 @@ class ViewController: ZHViewController {
             .tap
             .subscribe(onNext: { [weak self] _ in
                 self?.dateCollectioinView.modifyMonth(type: .lastMonth, completion: {
+                    print("sssssss \($0)")
                     self?.dateLab.text = Date.dateWithString(date: $0, dateFormat: Date.Formatter.cnYYYYMM.rawValue)
                 })
             })
